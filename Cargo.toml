@@ -1,0 +1,11 @@
+[package]
+name = "redhook-adventures"
+version = "0.1.0"
+authors = ["Caspar Krieger <caspar@asparck.com>"]
+
+[lib]
+name = "redhook_adventures"
+crate_type = ["dylib"]
+
+[dependencies]
+redhook = "0.1"
