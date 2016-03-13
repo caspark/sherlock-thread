@@ -1,10 +1,10 @@
 [package]
-name = "redhook-adventures"
+name = "sherlock-thread"
 version = "0.1.0"
 authors = ["Caspar Krieger <caspar@asparck.com>"]
 
 [lib]
-name = "redhook_adventures"
+name = "sherlockthread"
 crate_type = ["dylib"]
 
 [dependencies]

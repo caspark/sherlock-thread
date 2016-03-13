@@ -27,19 +27,19 @@ run-c-hack-c: build-c build-hack-c
 	LD_PRELOAD=target/c/hack-c.so target/c/hello
 
 run-c-hack-rust: build-c build-hack-rust
-	LD_PRELOAD=target/debug/libredhook_adventures.so target/c/hello
+	LD_PRELOAD=target/debug/libsherlockthread.so target/c/hello
 
 run-javav:
 	java -version
 
 run-javav-hack-rust: build-hack-rust
-	LD_PRELOAD=target/debug/libredhook_adventures.so java -version
+	LD_PRELOAD=target/debug/libsherlockthread.so java -version
 
 run-java: build-java
 	java -cp target/java HelloWorld
 
 run-java-hack-rust: build-java build-hack-rust
-	LD_PRELOAD=target/debug/libredhook_adventures.so java -cp target/java HelloWorld
+	LD_PRELOAD=target/debug/libsherlockthread.so java -cp target/java HelloWorld
 
 clean:
 	rm -r target
