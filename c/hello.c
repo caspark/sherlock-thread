@@ -3,7 +3,8 @@
 int main (void) {
     puts("Hello, world via puts!");
 
-    int a = 0;
-    printf("Trying printf; a = %u - or does it?", a);
+    int a = 9;
+    printf("Trying printf; it's over %u!!!", a * 1000);
+    printf(" Or is it?\nOk, it's probably not.\n");
     return 0;
 }
