@@ -12,12 +12,16 @@ hook! {
     unsafe fn puts(line: *const c_char) -> c_int => custom_puts {
         // we assume that line is valid unicode
         let line_as_str = str::from_utf8_unchecked(ffi::CStr::from_ptr(line).to_bytes());
-        let line_with_thread_ids = CString::new(format!("{}{}", line_as_str, get_thread_id_as_string()))
+        let line_with_thread_ids = CString::new(format!("{}{}", add_thread_id_before_newlines(line_as_str), get_thread_id_as_string()))
             .unwrap();
 
         real!(puts)(line_with_thread_ids.as_ptr())
     }
 }
+
+// extern {
+//     fn printf(format: *const c_char, ...) -> c_int;
+//  }
 
 // FIXME doesn't work properly (varargs are ignored) because the real signature for printf has varargs
 // while varags are valid in extern decls, redhook doesn't support it in its macro syntax
@@ -25,7 +29,6 @@ hook! {
     unsafe fn printf(format: *const c_char) -> c_int => custom_printf {
         // we assume that format is valid unicode
         let format_as_str = str::from_utf8_unchecked(ffi::CStr::from_ptr(format).to_bytes());
-        //FIXME for some reason this find and replace operation does not work properly
         let format_with_thread_ids = CString::new(add_thread_id_before_newlines(format_as_str))
             .unwrap();
 
