@@ -41,5 +41,8 @@ run-java: build-java
 run-java-hack-rust: build-java build-hack-rust
 	LD_PRELOAD=target/debug/libsherlockthread.so java -cp target/java HelloWorld
 
+run-mvn-hack-rust: build-hack-rust
+	LD_PRELOAD=target/debug/libsherlockthread.so mvn
+
 clean:
 	rm -r target
