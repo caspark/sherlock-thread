@@ -36,6 +36,7 @@ hook! {
     }
 }
 
+// va_list impls: see https://github.com/thepowersgang/va_list-rs , though note it has open safety issues.
 //TODO vprintf
 //TODO vfprintf
 //TODO fprintf
